@@ -120,7 +120,7 @@ By default, the next generation configuration is shown after s=50 milliseconds.
 
 **Examples:**
 
-Visualize the evolution of the first 200 generations of a grid originally set as spaceship glider pattern in a periodic 13 by 11 cells grid.
+Visualize the evolution of the first 200 generations of a grid originally set as a spaceship glider pattern in a periodic 13 by 11 cells grid.
 
 ```dotnetcli
 A=[0 0 0 0 0;

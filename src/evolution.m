@@ -46,10 +46,18 @@ function B=evolution(A,N=100,cyc=false,fig=true,map='gray',s=50)
     #  the game-of-life toolbox for GNU Octave.
     #
     # Examples:
-    # # Simulate the evolution
-    # # of a spaceship glider pattern
-    # # in a 10 by 10 cells grid and
-    # # visualize the grid evolution on plots.
+    # # Visualize the evolution of
+    # # the first 200 generations of
+    # # a grid originally set as
+    # # a spaceship glider pattern in
+    # # a periodic 13 by 11 cells grid.
+    # A=[0 0 0 0 0;
+    #    0 0 1 0 0;
+    #    0 0 0 1 0;
+    #    0 1 1 1 0;
+    #    0 0 0 0 0];
+    # A(13,11)=0;
+    # B=evolution(A,200,true)
     #
     # See also: conway, genzero.
     n=0;
