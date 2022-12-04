@@ -1,0 +1,11 @@
+Name: game-of-life
+Version: 0.1.0
+Date: 2022-12-04
+Author: Alexandre Umpierre (aumpierre@gmail.com)
+Maintainer: Alexandre Umpierre
+Title: Conway's Game of Life
+Description: A package of functions for the Conway's game of life.
+Categories: package
+Depends: octave (>=4.0.0)
+License: GPLv3+
+Url: https://github.com/aumpierre-unb/Game-of-Life-for-GNU-Octave
