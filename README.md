@@ -9,10 +9,8 @@
 ## Installing and Loading `game-of-life`
 
 ```dotnetcli
-# this call installs version 0.1.0 and updates to the latest version
+# e.g. this call installs version 0.1.0
 pkg install https://github.com/aumpierre-unb/Game-of-Life-for-GNU-Octave/archive/refs/tags/v0.1.0.tar.gz
-pkg load game-of-life
-pkg update game-of-life
 ```
 
 ## Citation of `game-of-life`
