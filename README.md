@@ -72,7 +72,7 @@ Each cell will be live or dead in the next generation according to the rules of 
 
 By default, the grid is assumed to be non periodic. If cyc=true is given, then grid is assumed to be periodic.
 
-By default, no plot is shown. If fig=true is given, then two plots are shown, the first being the configuration of the original grid and the second, the configuration of the next generation.
+By default, no plot is shown. If fig=true is given, then a figure with two subplots is shown, the first subplot being the configuration of the original grid and the second subplot being the configuration of the next generations.
 
 By default, the colormap pattern of plots is gray. Please address to the colormap help documentation for different patterns.
 
@@ -104,7 +104,7 @@ The simulations will be interrupted if the grid comes to a stable configuration.
 
 By default, the grid is assumed to be not periodic. If cyc=true is given, then grid is assumed periodic.
 
-By default, two plots are shown, the first being the configuration of the original grid and the second, the configuration of the next generations. If fig=false is given, then no plot is shown.
+By default, a figure with two subplots is shown, the first subplot being the configuration of the original grid and the second subplot being the configuration of the next generations. If fig=false is given, then no plot is shown.
 
 By default, the colormap pattern of plots is gray. Please address to the colormap help documentation for different patterns.
 
