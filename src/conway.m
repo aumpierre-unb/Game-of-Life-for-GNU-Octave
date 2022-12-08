@@ -36,11 +36,12 @@ function B=conway(A,cyc=false,fig=false,map='gray')
     # By default, the grid is assumed to be non periodic.
     #  If cyc=true is given, then grid is assumed to be periodic.
     # By default, no plot is shown.
-    #  If fig=true is given, then two plots are shown,
-    #  the first being
+    #  If fig=true is given, then
+    #  a figure with two subplots is shown,
+    #  the first subplot being
     #  the configuration of the original grid and
-    #  the second,
-    #  the configuration of the next generation.
+    #  the second subplot being
+    #  the configuration of the next generations.
     # By default, the colormap pattern of plots
     #  is gray. Please address to
     #  the colormap help documentation for
@@ -62,7 +63,6 @@ function B=conway(A,cyc=false,fig=false,map='gray')
     # B=conway(A,true,true)
     #
     # See also: genzero, evolution.
-
     if cyc
         C=[A(:,end),A,A(:,1)];
         D=[C(end,:);C;C(1,:)];
@@ -95,10 +95,34 @@ function B=conway(A,cyc=false,fig=false,map='gray')
             end
         end
     end
-    if fig
-        figs(A,map);
-        figs(B,map);
-    end
     B=B(2:end-1,2:end-1);
+    if fig
+        P=size(A,2);
+        Q=size(A,1);
+        figure('color','#A3A3A3');subplot(1,2,1);
+        colormap(map);
+        set(gca,'xlim',[.5 P+.5],...
+        'ylim',[.5 Q+.5],...
+        'xgrid','on',...
+        'ygrid','on',...
+        'gridcolor',[.73 .73 .73],...
+        'xtick',[1:P],...
+        'xtick',[1:Q],...
+        'box','on');
+        image(A*100);
+        axis('nolabel','equal');
+        subplot(1,2,2);
+        colormap(map);
+        set(gca,'xlim',[.5 P+.5],...
+        'ylim',[.5 Q+.5],...
+        'xgrid','on',...
+        'ygrid','on',...
+        'gridcolor',[1 1 1],...
+        'xtick',[1:P],...
+        'xtick',[1:Q],...
+        'box','on');
+        image(B*100);
+        axis('nolabel','equal');
+    end
 end
 

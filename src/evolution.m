@@ -30,10 +30,10 @@ function B=evolution(A,N=100,cyc=false,fig=true,map='gray',s=50)
     # By default, 100 generations will be computed.
     # By default, the grid is assumed to be not periodic.
     #  If cyc=true is given, then grid is assumed periodic.
-    # By default, two plots are shown,
-    #  the first being
+    # By default, a figure with two subplots is shown,
+    #  the first subplot being
     #  the configuration of the original grid and
-    #  the second,
+    #  the second subplot being
     #  the configuration of the next generations.
     #  If fig=false is given, then no plot is shown.
     # By default, the colormap pattern of plots
@@ -61,27 +61,61 @@ function B=evolution(A,N=100,cyc=false,fig=true,map='gray',s=50)
     #
     # See also: conway, genzero.
     n=0;
+    C={};
     start=true;
     while n<N
+        if n<10
+            C=[C A];
+            m=n;
+        else
+            for i=1:10-1
+                C{i}=C{i+1};
+            end
+            C{10}=A;
+            m=10;
+        end
         B=conway(A,cyc,:,map);
         n=n+1;
-##        if ~any(any(B))
-##            printf('All dead after %d iterations!\n',n);
-##            image(B*100);
-##            break;
-##        end
-        if all(all(B==A))
-            printf('Stability reached after %d itarations.\n',n-1);
-            image(B*100);
-            break;
+
+        for i=1:m
+            if all(all(B==C{i}))
+                printf('Stability after %d itarations with period %d.\n',n-1,m-i+1);
+                image(B*100);
+                return;
+            end
         end
         if n==N
             printf('Not stable after %d itarations.\n',n);
         end
         if start && fig
-            figs(A,map);
+            P=size(A,2);
+            Q=size(A,1);
+            figure('color','#A3A3A3');
+            subplot(1,2,1);
+            colormap(map);
+            set(gca,'xlim',[.5 P+.5],...
+            'ylim',[.5 Q+.5],...
+            'xgrid','on',...
+            'ygrid','on',...
+            'gridcolor',[.73 .73 .73],...
+            'xtick',[1:P],...
+            'xtick',[1:Q],...
+            'box','on');
+            image(A*100);
+            axis('nolabel','equal');
             start=false;
-            figs(B,map);
+            subplot(1,2,2);
+            colormap(map);
+            set(gca,'xlim',[.5 P+.5],...
+            'ylim',[.5 Q+.5],...
+            'xgrid','on',...
+            'ygrid','on',...
+            'gridcolor',[1 1 1],...
+            'xtick',[1:P],...
+            'xtick',[1:Q],...
+            'box','on');
+            image(B*100);
+            axis('nolabel','equal');
             hold on;
         end
         if fig
