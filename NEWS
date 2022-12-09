@@ -1,6 +1,12 @@
 TODO
 ====
-* Include extra patterns
+
+internal-fluid-flow 0.1.1-alpha (2022-12-09)
+======================================
+* New patterns included
+* Input and output plots combined as subplots
+* Minor changes on functions
+* Minor changes on documentation
 
 internal-fluid-flow 0.1.0 (2022-12-08)
 ======================================

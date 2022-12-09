@@ -17,19 +17,21 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function B=evolution(A,N=100,cyc=false,fig=true,map='gray',s=50)
+function [B,n]=evolution(A,N=100,cyc=false,fig=true,map='gray',s=50)
     # Syntax:
-    # [B]=evolution(A,N=100,cyc=false,fig=true,map='gray',s=50)
+    # [B]=evolution(A[,N=100[,cyc=false[,fig=true[,map='gray'[,s=50]]]]])
     #
     # evolution simulates the evolution of
     #  a grid of square cells
     #  according to the rules of
     #  the Conway's game of life.
     # The simulations will be interrupted
-    #  if the grid comes to a stable configuration.
+    #  if the grid comes to
+    #  a stable configuration (including death).
     # By default, 100 generations will be computed.
-    # By default, the grid is assumed to be not periodic.
-    #  If cyc=true is given, then grid is assumed periodic.
+    # By default, the grid is assumed to be finite.
+    #  If cyc=true is given, then
+    #  grid is assumed to be infinite and periodic.
     # By default, a figure with two subplots is shown,
     #  the first subplot being
     #  the configuration of the original grid and
@@ -46,18 +48,20 @@ function B=evolution(A,N=100,cyc=false,fig=true,map='gray',s=50)
     #  the game-of-life toolbox for GNU Octave.
     #
     # Examples:
-    # # Visualize the evolution of
+    # # Observe the evolution of
     # # the first 200 generations of
     # # a grid originally set as
     # # a spaceship glider pattern in
     # # a periodic 13 by 11 cells grid.
-    # A=[0 0 0 0 0;
-    #    0 0 1 0 0;
-    #    0 0 0 1 0;
-    #    0 1 1 1 0;
-    #    0 0 0 0 0];
-    # A(13,11)=0;
+    # A=genzero(13,11,'glider');...
     # B=evolution(A,200,true)
+    #
+    # # Generate a periodic 27 by 28 cells grid
+    # # where individual cells have a 26:74 chance
+    # # to be live or dead and
+    # # observe its evolution.
+    # A=genzero(27,28,.26);...
+    # B=evolution(A,inf,true)
     #
     # See also: conway, genzero.
     n=0;
@@ -114,12 +118,12 @@ function B=evolution(A,N=100,cyc=false,fig=true,map='gray',s=50)
             'xtick',[1:P],...
             'xtick',[1:Q],...
             'box','on');
-            image(B*100);
-            axis('nolabel','equal');
-            hold on;
+
         end
         if fig
             image(B*100);
+            axis('nolabel','equal');
+            hold on;
             pause(s/1000);
         end
         A=B;

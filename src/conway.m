@@ -19,7 +19,7 @@
 
 function B=conway(A,cyc=false,fig=false,map='gray')
     # Syntax:
-    # [B]=conway(A[,cyc[,fig]])
+    # [B]=conway(A[,cyc=false[,fig=false[,map='gray']]])
     #
     # conway computes
     #  the configuration of
@@ -33,8 +33,9 @@ function B=conway(A,cyc=false,fig=false,map='gray')
     #  stays a live cell, otherwise it dies.
     # 2) A dead cell with 3 live neighbors
     #  becomes alive, otherwise is stays dead.
-    # By default, the grid is assumed to be non periodic.
-    #  If cyc=true is given, then grid is assumed to be periodic.
+    # By default, the grid is assumed to be finite.
+    #  If cyc=true is given, then
+    #  grid is assumed to be infinite and periodic.
     # By default, no plot is shown.
     #  If fig=true is given, then
     #  a figure with two subplots is shown,
@@ -53,13 +54,8 @@ function B=conway(A,cyc=false,fig=false,map='gray')
     # # Compute the next generation
     # # of a spaceship glider pattern
     # # in a 10 by 10 cells grid and
-    # # visualise the grids on plots.
-    # A=[0 0 0 0 0;
-    #    0 0 1 0 0;
-    #    0 0 0 1 0;
-    #    0 1 1 1 0;
-    #    0 0 0 0 0];
-    # A(10,10)=0;
+    # # visualize the grids on plots.
+    # A=genzero(10,10,'glider');...
     # B=conway(A,true,true)
     #
     # See also: genzero, evolution.

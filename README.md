@@ -47,8 +47,7 @@ As simple as these rules may be, they can result in surprising complexity from r
 `genzero` generates a matrix of ones and zeros of m lines and n columns.
 By default, elements of the matrix are computed individually with 50 percent probability of assuming the value one.
 If probability for ones if given, the values of all elements are computed with this parameter.
-If strings 'oscillator blinker' or 'still block' or 'spaceship glider' is assigned, matrix is build with the given pattern at the superior left corner of the grid.
-
+If the grid pattern is assigned by strings 'block', 'glider', 'blinker', 'toad' or 'beacon' matrix is generated with the pattern at its superior left corner.
 
 **Syntax:**
 
@@ -61,7 +60,13 @@ If strings 'oscillator blinker' or 'still block' or 'spaceship glider' is assign
 Generate a spaceship glider pattern in a 9 lines and 7 columns matrix.
 
 ```dotnetcli
-A=genzero(9,7,'spaceship glider')
+A=genzero(9,7,'glider')
+```
+
+Generate a 27 by 28 cells grid where individual cells have a 26:74 chance to be live or dead.
+
+```dotnetcli
+A=genzero(27,28,.26)
 ```
 
 ### `conway`
@@ -70,7 +75,7 @@ A=genzero(9,7,'spaceship glider')
 
 Each cell will be live or dead in the next generation according to the rules of the Conway's game of life.
 
-By default, the grid is assumed to be non periodic. If cyc=true is given, then grid is assumed to be periodic.
+By default, the grid is assumed to be finite. If cyc=true is given, then grid is assumed to be infinite and periodic.
 
 By default, no plot is shown. If fig=true is given, then a figure with two subplots is shown, the first subplot being the configuration of the original grid and the second subplot being the configuration of the next generations.
 
@@ -87,12 +92,7 @@ By default, the colormap pattern of plots is gray. Please address to the colorma
 Compute the next generation of a spaceship glider pattern in a 10 by 10 cells grid and visualize the grids on plots.
 
 ```dotnetcli
-A=[0 0 0 0 0;
-   0 0 1 0 0;
-   0 0 0 1 0;
-   0 1 1 1 0;
-   0 0 0 0 0];
-A(10,10)=0;
+A=genzero(10,10,'glider');...
 B=conway(A,true,true)
 ```
 
@@ -102,7 +102,7 @@ B=conway(A,true,true)
 
 The simulations will be interrupted if the grid comes to a stable configuration.By default, 100 generations will be computed.
 
-By default, the grid is assumed to be not periodic. If cyc=true is given, then grid is assumed periodic.
+By default, the grid is assumed to be finite. If cyc=true is given, then grid is assumed to be infinite and periodic.
 
 By default, a figure with two subplots is shown, the first subplot being the configuration of the original grid and the second subplot being the configuration of the next generations. If fig=false is given, then no plot is shown.
 
@@ -118,16 +118,18 @@ By default, the next generation configuration is shown after s=50 milliseconds.
 
 **Examples:**
 
-Visualize the evolution of the first 200 generations of a grid originally set as a spaceship glider pattern in a periodic 13 by 11 cells grid.
+Observe the evolution of the first 200 generations of a grid originally set as a spaceship glider pattern in a periodic 13 by 11 cells grid.
 
 ```dotnetcli
-A=[0 0 0 0 0;
-   0 0 1 0 0;
-   0 0 0 1 0;
-   0 1 1 1 0;
-   0 0 0 0 0];
-A(13,11)=0;
+A=genzero(13,11,'glider');...
 B=evolution(A,200,true)
+```
+
+Generate a periodic 27 by 28 cells grid where individual cells have a 26:74 chance to be live or dead and observe its evolution.
+
+```dotnetcli
+A=genzero(27,28,.26);...
+B=evolution(A,inf,true)
 ```
 
 Copyright &copy; 2022 Alexandre Umpierre

@@ -30,56 +30,81 @@ function A=genzero(m,n,P=.5)
     #  assuming the value one.
     # If probability for ones if given,
     #  the values of all elements are
-    #  computed with this parameter.
-    # If strings 'oscillator blinker' or
-    #  'still block' or 'spaceship glider'
-    #  is assigned, matrix is build with
-    #  the given pattern at
-    #  the superior left corner of the grid.
+    #  computed accordingly.
+    # If the grid pattern is assigned by strings
+    #  'block', 'glider', 'blinker', 'toad' or 'beacon'
+    #  matrix is generated with the pattern at
+    #  its superior left corner.
     # genzero is a main function of
     #  the game-of-life toolbox for GNU Octave.
     #
     # Examples:
     # # Generate a spaceship glider pattern
     # # in a 9 lines and 7 columns matrix.
-    # A=genzero(9,7,'spaceship glider')
+    # A=genzero(9,7,'glider')
+    #
+    # # Generate a 27 by 28 cells grid
+    # # where individual cells have a 26:74 chance
+    # # to be live or dead.
+    # A=genzero(27,28,.26)
     #
     # See also: conway, evolution.
-    if isreal(P)&&isscalar(P)&&P>0
+    if isreal(P) && isscalar(P) && P>0
         A=(rand(m,n)<P);
-    elseif strcmpi(P,"oscillator blinker")
-        A=[0 0 0 0 0;
-           0 0 1 0 0;
-           0 0 1 0 0;
-           0 0 1 0 0;
-           0 0 0 0 0];
-        if m>5
+    elseif strcmpi(P,'block')
+        A=[0 0 0;
+           0 1 1;
+           0 1 1];
+        if m>size(A,1)
             A(m,end)=0;
         end
-        if n>5
+        if n>size(A,2)
             A(end,n)=0;
         end
-    elseif strcmpi(P,"still block")
+    elseif strcmpi(P,'glider')
         A=[0 0 0 0;
-           0 1 1 0;
-           0 1 1 0;
-           0 0 0 0];
-        if m>4
+           0 0 1 0;
+           0 0 0 1;
+           0 1 1 1];
+        if m>size(A,1)
             A(m,end)=0;
         end
-        if n>4
+        if n>size(A,2)
             A(end,n)=0;
         end
-    elseif strcmpi(P,"spaceship glider")
+    elseif strcmpi(P,'blinker')
+        A=[0 0 0 0;
+           0 0 1 0;
+           0 0 1 0;
+           0 0 1 0];
+        if m>size(A,1)
+            A(m,end)=0;
+        end
+        if n>size(A,2)
+            A(end,n)=0;
+        end
+    elseif strcmpi(P,'toad')
         A=[0 0 0 0 0;
-           0 0 1 0 0;
-           0 0 0 1 0;
+           0 0 0 0 0
+           0 0 1 1 1;
            0 1 1 1 0;
            0 0 0 0 0];
-        if m>5
+        if m>size(A,1)
             A(m,end)=0;
         end
-        if n>5
+        if n>size(A,2)
+            A(end,n)=0;
+        end
+    elseif strcmpi(P,'beacon')
+        A=[0 0 0 0 0;
+           0 1 1 0 0;
+           0 1 1 0 0;
+           0 0 0 1 1;
+           0 0 0 1 1];
+        if m>size(A,1)
+            A(m,end)=0;
+        end
+        if n>size(A,2)
             A(end,n)=0;
         end
     end
