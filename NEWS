@@ -1,14 +1,14 @@
 TODO
 ====
 
-internal-fluid-flow 0.1.1-alpha (2022-12-09)
+game-of-life 0.1.1-alpha (2022-12-09)
 ======================================
 * New patterns included
 * Input and output plots combined as subplots
 * Minor changes on functions
 * Minor changes on documentation
 
-internal-fluid-flow 0.1.0 (2022-12-08)
+game-of-life 0.1.0 (2022-12-08)
 ======================================
 * First release
 * Package under construction
