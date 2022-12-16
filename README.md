@@ -10,7 +10,7 @@
 
 `game-of-life` is no registered at GNU Octave's repository. 
 
-In order to install `game-of-life`, download the latest version compressed source code at [Releases](https://github.com/aumpierre-unb/Game-of-Life-for-GNU-Octave/releases) and call the following sequence from your console:
+In order to install `game-of-life`, download the latest version compressed source code at [Releases](https://github.com/aumpierre-unb/Game-of-Life-for-GNU-Octave/releases), set the current directory to the download folder and call the following sequence from your console:
 
 ```dotnetcli
 # e.g. this call will install version 0.1.1
