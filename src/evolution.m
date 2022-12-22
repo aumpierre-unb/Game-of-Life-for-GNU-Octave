@@ -17,7 +17,7 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [B,n]=evolution(A,N=100,cyc=false,fig=true,map='gray',s=50)
+function [B,n]=evolution(A,N=100,cyc=false,fig=true,map='gray',s=30)
     # Syntax:
     # [B]=evolution(A[,N=100[,cyc=false[,fig=true[,map='gray'[,s=50]]]]])
     #
@@ -67,6 +67,7 @@ function [B,n]=evolution(A,N=100,cyc=false,fig=true,map='gray',s=50)
     n=0;
     C={};
     start=true;
+    k=0;
     while n<N
         if n<10
             C=[C A];
@@ -80,7 +81,6 @@ function [B,n]=evolution(A,N=100,cyc=false,fig=true,map='gray',s=50)
         end
         B=conway(A,cyc,:,map);
         n=n+1;
-
         for i=1:m
             if all(all(B==C{i}))
                 printf('Stability after %d itarations with period %d.\n',n-1,m-i+1);
@@ -106,6 +106,7 @@ function [B,n]=evolution(A,N=100,cyc=false,fig=true,map='gray',s=50)
             'xtick',[1:Q],...
             'box','on');
             image(A*100);
+            axis off;
             axis('nolabel','equal');
             start=false;
             subplot(1,2,2);
@@ -118,13 +119,17 @@ function [B,n]=evolution(A,N=100,cyc=false,fig=true,map='gray',s=50)
             'xtick',[1:P],...
             'xtick',[1:Q],...
             'box','on');
-
         end
         if fig
             image(B*100);
+            axis off;
             axis('nolabel','equal');
             hold on;
             pause(s/1000);
+        end
+        if false
+            k=k+1;
+            print(sprintf('animation%04d.gif',k));
         end
         A=B;
     end
