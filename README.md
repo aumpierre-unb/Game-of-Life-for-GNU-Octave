@@ -6,7 +6,7 @@
 
 <!-- ![Illustrative graphical output](https://github.com/aumpierre-unb/Game-of-Life-for-GNU-Octave/blob/main/pics/D2fRe.png "Example of graphical output") -->
 
-![](pics/animation00001.gif)
+![](animation00001.gif)
 
 ## Installing and Loading `game-of-life`
 
