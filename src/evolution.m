@@ -106,8 +106,7 @@ function [B,n]=evolution(A,N=100,cyc=false,fig=true,map='gray',s=30)
             'xtick',[1:Q],...
             'box','on');
             image(A*100);
-            axis off;
-            axis('nolabel','equal');
+            axis('nolabel','equal','tic[]');
             start=false;
             subplot(1,2,2);
             colormap(map);
@@ -122,8 +121,7 @@ function [B,n]=evolution(A,N=100,cyc=false,fig=true,map='gray',s=30)
         end
         if fig
             image(B*100);
-            axis off;
-            axis('nolabel','equal');
+            axis('nolabel','equal','tic[]');
             hold on;
             pause(s/1000);
         end
