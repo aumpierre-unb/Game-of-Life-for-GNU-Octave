@@ -17,7 +17,7 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function A=genzero(m,n,P=.5)
+function A=genzero(m,n,P=.50)
     # Syntax:
     # [A]=genzero(m,n[,P=.5])
     #
