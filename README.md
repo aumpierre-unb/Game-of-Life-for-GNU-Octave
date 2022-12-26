@@ -108,7 +108,7 @@ B=conway(A,true,true)
 
 `evolution` simulates the evolution of a grid of square cells according to the rules of the Conway's game of life.
 
-The simulations will be interrupted if the grid comes to a stable configuration. By default, 100 generations will be computed.
+The simulations will be interrupted if the grid comes to a stable configuration. By default, N=100 generations will be computed.
 
 By default, the grid is assumed to be finite. If cyc=true is given, then grid is assumed to be infinite and periodic.
 
