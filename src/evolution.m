@@ -19,7 +19,7 @@
 
 function [B,n]=evolution(A,N=100,cyc=false,fig=true,map='gray',s=30)
     # Syntax:
-    # [B]=evolution(A[,N=100[,cyc=false[,fig=true[,map='gray'[,s=50]]]]])
+    # [B]=evolution(A[,N=100[,cyc=false[,fig=true[,map='gray'[,s=30]]]]])
     #
     # evolution simulates the evolution of
     #  a grid of square cells
@@ -27,8 +27,8 @@ function [B,n]=evolution(A,N=100,cyc=false,fig=true,map='gray',s=30)
     #  the Conway's game of life.
     # The simulations will be interrupted
     #  if the grid comes to
-    #  a stable configuration (including death).
-    # By default, 100 generations will be computed.
+    #  a stable configuration (including death of all cells).
+    # By default, N=100 generations will be computed.
     # By default, the grid is assumed to be finite.
     #  If cyc=true is given, then
     #  grid is assumed to be infinite and periodic.
@@ -43,7 +43,7 @@ function [B,n]=evolution(A,N=100,cyc=false,fig=true,map='gray',s=30)
     #  the colormap help documentation for
     #  different patterns.
     # By default, the next generation configuration
-    #  is shown after s=50 milliseconds.
+    #  is shown after s=30 milliseconds.
     # evolution is a main function of
     #  the game-of-life toolbox for GNU Octave.
     #
