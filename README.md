@@ -25,11 +25,10 @@ pkg load game-of-life
 
 You can cite all versions (both released and pre-released), by using
 [DOI 105281/zenodo.7395871](https://doi.org/10.5281/zenodo.7395871).
-
 This DOI represents all versions, and will always resolve to the latest one.
 
-To cite the last released version, please check
-https://zenodo.org/account/settings/github/repository/aumpierre-unb/Game-of-Life-for-GNU-Octave.
+<!--To cite the last released version, please check
+https://zenodo.org/account/settings/github/repository/aumpierre-unb/Game-of-Life-for-GNU-Octave.-->
 
 ---
 
