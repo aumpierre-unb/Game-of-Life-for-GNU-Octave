@@ -139,6 +139,6 @@ A=genzero(27,28,.26);...
 B=evolution(A,inf,true)
 ```
 
-Copyright &copy; 2022 Alexandre Umpierre
+Copyright &copy; 2022 2023 Alexandre Umpierre
 
 email: aumpierre@gmail.com
