@@ -15,9 +15,9 @@
 In order to install `game-of-life`, download the latest version compressed source code at [Releases](https://github.com/aumpierre-unb/Game-of-Life-for-GNU-Octave/releases), set the current directory to the download folder and call the following sequence from your console:
 
 ```dotnetcli
-# e.g. this call will install version 0.1.1
+# e.g. this call will install version 0.1.2
 # for latter versions, adapt the call accordingly
-pkg install v0.1.1.tar.gz
+pkg install v0.1.2.tar.gz
 pkg load game-of-life
 ```
 
